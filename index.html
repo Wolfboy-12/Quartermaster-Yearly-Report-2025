@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QM Yearly Statistics 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: #4f46e5;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 1rem;
+            bottom: -1.5rem;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-indigo-800 mb-2">Quartermaster Statistics</h1>
+            <p class="text-xl text-indigo-600">Annual Report 2025</p>
+            <div class="mt-4">
+                <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <i data-feather="calendar" class="inline mr-1 w-4 h-4"></i> Until 29 Sep 2025
+                </span>
+            </div>
+        </header>
+
+        <!-- Key Stats Card -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="package" class="inline mr-2 w-5 h-5"></i> Orders / Items Summary
+                    </h2>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                        <div class="text-indigo-600 mb-2">
+                            <i data-feather="shopping-cart" class="w-8 h-8 mx-auto"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">80</h3>
+                        <p class="text-gray-600">Total Orders</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                        <div class="text-indigo-600 mb-2">
+                            <i data-feather="tag" class="w-8 h-8 mx-auto"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">115</h3>
+                        <p class="text-gray-600">Items Issued</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                        <div class="text-indigo-600 mb-2">
+                            <i data-feather="dollar-sign" class="w-8 h-8 mx-auto"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">RM 1,562</h3>
+                        <p class="text-gray-600">Money Handled</p>
+                    </div>
+</div>
+            </div>
+        </section>
+        <!-- Procurement -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="truck" class="inline mr-2 w-5 h-5"></i> Procurement Summary
+                    </h2>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                        <div class="text-indigo-600 mb-2">
+                            <i data-feather="repeat" class="w-8 h-8 mx-auto"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">5</h3>
+                        <p class="text-gray-600">Stock Orders Made</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                        <div class="text-indigo-600 mb-2">
+                            <i data-feather="clipboard" class="w-8 h-8 mx-auto"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">364</h3>
+                        <p class="text-gray-600">Total Items Ordered</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Counts -->
+<section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="check-square" class="inline mr-2 w-5 h-5"></i> Stock Counts
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Stock Counts Completed</span>
+                            <span class="font-bold">3 of 4</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="bg-indigo-600 h-4 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="toggleCollapse('stockCategories')" class="flex items-center text-indigo-600 font-medium mb-4">
+                        <i data-feather="chevron-down" class="mr-2 w-5 h-5 transition-transform duration-300" id="stockChevron"></i>
+                        View Categories Breakdown
+                    </button>
+                    
+                    <div id="stockCategories" class="collapsible-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-indigo-600 mb-2">
+                                    <i data-feather="tshirt" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold">Clothes</h3>
+                                <p class="text-gray-600">Uniforms & apparel</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-indigo-600 mb-2">
+                                    <i data-feather="award" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold">Uniform Parts</h3>
+                                <p class="text-gray-600">Components & accessories</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-indigo-600 mb-2">
+                                    <i data-feather="star" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold">Badges</h3>
+                                <p class="text-gray-600">Identification & awards</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-indigo-600 mb-2">
+                                    <i data-feather="box" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="font-bold">Other Items</h3>
+                                <p class="text-gray-600">Miscellaneous equipment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="message-square" class="inline mr-2 w-5 h-5"></i> Customer Feedback
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-feather="thumbs-up" class="text-green-600 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-2xl">63</h3>
+                                <p class="text-gray-600">Happy Customers</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i data-feather="thumbs-down" class="text-red-600 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-2xl">0</h3>
+                                <p class="text-gray-600">Negative Reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-indigo-600 font-medium">
+                        View detailed feedback
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="award" class="inline mr-2 w-5 h-5"></i> Major Achievements
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-indigo-100 p-1 rounded-full mr-4 mt-1">
+                                <i data-feather="check" class="text-indigo-600 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Completed 3 stock counts</h3>
+                                <p class="text-gray-600">Thorough inventory management</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-indigo-100 p-1 rounded-full mr-4 mt-1">
+                                <i data-feather="check" class="text-indigo-600 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Coordinated First Parade uniforms</h3>
+                                <p class="text-gray-600">Successful event preparation</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-indigo-100 p-1 rounded-full mr-4 mt-1">
+                                <i data-feather="check" class="text-indigo-600 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Organized inventory system</h3>
+                                <p class="text-gray-600">Improved tracking and management</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-indigo-100 p-1 rounded-full mr-4 mt-1">
+                                <i data-feather="check" class="text-indigo-600 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Fixed Google Sheets problems</h3>
+                                <p class="text-gray-600">Streamlined documentation</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-indigo-100 p-1 rounded-full mr-4 mt-1">
+                                <i data-feather="check" class="text-indigo-600 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Distributed Recruits & Seniors uniforms</h3>
+                                <p class="text-gray-600">Timely equipment allocation</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 px-6 py-4">
+                    <h2 class="text-xl font-bold text-white">
+                        <i data-feather="clock" class="inline mr-2 w-5 h-5"></i> Key Events Timeline
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <button onclick="toggleCollapse('decMar')" class="flex items-center text-indigo-600 font-medium mb-2">
+                            <i data-feather="chevron-down" class="mr-2 w-5 h-5 transition-transform duration-300" id="decMarChevron"></i>
+                            Dec 2024 – Mar 2025
+                        </button>
+                        <div id="decMar" class="collapsible-content pl-6">
+                            <div class="timeline-item">
+                                <h3 class="font-bold">7 Dec: Ordered Uniform Parts</h3>
+                                <p class="text-gray-600">Initial procurement for upcoming events</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">6 Dec: Cabin Clean-up Proposal</h3>
+                                <p class="text-gray-600">Submitted improvement plans</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">9 Dec: Updated stocks with new orders</h3>
+                                <p class="text-gray-600">Inventory replenishment</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">21 Dec: Coordinated First Parade Payment</h3>
+                                <p class="text-gray-600">Financial coordination with Treasurer</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">26 Dec: Volunteer Signup for Cabin Clean-Up</h3>
+                                <p class="text-gray-600">Team mobilization</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">3 Jan: Changed First Parade Plans</h3>
+                                <p class="text-gray-600">Event adjustments</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">10 Jan: Finalized minimum stock levels</h3>
+                                <p class="text-gray-600">Inventory optimization</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">13 Jan: Announced Cabin Cleanup and ATP</h3>
+                                <p class="text-gray-600">Communications rollout</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">16 Feb: Door Knob Installation</h3>
+                                <p class="text-gray-600">Facility improvement</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">8 Feb: Created WhatsApp Group for Cleanup</h3>
+                                <p class="text-gray-600">Communication channel setup</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">17 Feb: Fixed Google Sheets problems</h3>
+                                <p class="text-gray-600">System troubleshooting</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">17 Feb: Fixed Badges Problem</h3>
+                                <p class="text-gray-600">Uniform component resolution</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">7 Feb: Added items to Cleanup Proposal</h3>
+                                <p class="text-gray-600">Plan expansion</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">2 Mar: 1st Cabin Cleanup</h3>
+                                <p class="text-gray-600">Initial cleanup execution</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">2 Mar: 2nd Stock Count</h3>
+                                <p class="text-gray-600">Mid-year inventory assessment</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">6 Mar: Created Uniform Measurement Plan</h3>
+                                <p class="text-gray-600">Standardization process</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">20 Mar: Obtained Recruits Uniforms</h3>
+                                <p class="text-gray-600">New member equipment</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">22 Mar: Updated Inventories</h3>
+                                <p class="text-gray-600">System synchronization</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">22 Mar: 3rd Stock Count</h3>
+                                <p class="text-gray-600">Quarterly inventory check</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">22 Mar: Finished Seniors Uniform Order</h3>
+                                <p class="text-gray-600">Leadership apparel completion</p>
+                            </div>
+</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <button onclick="toggleCollapse('aprAug')" class="flex items-center text-indigo-600 font-medium mb-2">
+                            <i data-feather="chevron-down" class="mr-2 w-5 h-5 transition-transform duration-300" id="aprAugChevron"></i>
+                            Apr – Aug 2025
+                        </button>
+                        <div id="aprAug" class="collapsible-content pl-6">
+                            <div class="timeline-item">
+                                <h3 class="font-bold">19 Apr: Planned uniform distribution for Recruits</h3>
+                                <p class="text-gray-600">Preparation for new members</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">27 Apr: Created Uniform Exchange Template</h3>
+                                <p class="text-gray-600">Standardized replacement process</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">11 May: Obtained Recruits Uniform Order softcopy</h3>
+                                <p class="text-gray-600">Digital documentation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">8 Jun: Distributed socks to Recruits</h3>
+                                <p class="text-gray-600">Equipment allocation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">11 Jun: Installed Automated Note System</h3>
+                                <p class="text-gray-600">Process automation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">19 Jul: Sent Lost & Found details</h3>
+                                <p class="text-gray-600">Item recovery process</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">2 Aug: Cleared Lost & Found items</h3>
+                                <p class="text-gray-600">Inventory resolution</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">5 Aug: Finished Senior's T-shirt distribution</h3>
+                                <p class="text-gray-600">Completed leadership apparel allocation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">5 Aug: Added New Company T-Shirt to Inventory</h3>
+                                <p class="text-gray-600">New stock addition</p>
+                            </div>
+</div>
+                    </div>
+                    
+                    <div>
+                        <button onclick="toggleCollapse('sep')" class="flex items-center text-indigo-600 font-medium mb-2">
+                            <i data-feather="chevron-down" class="mr-2 w-5 h-5 transition-transform duration-300" id="sepChevron"></i>
+                            Sep 2025
+                        </button>
+                        <div id="sep" class="collapsible-content pl-6">
+                            <div class="timeline-item">
+                                <h3 class="font-bold">3 Jan: Completed ATP System Part 2</h3>
+                                <p class="text-gray-600">System implementation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">19 Jan: Updated ATP System Part 3</h3>
+                                <p class="text-gray-600">System enhancement</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">20 Jan: Confirmed Cabin Cleanup</h3>
+                                <p class="text-gray-600">Event confirmation</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">21 Jan: Fixed Recruits Uniform Sheet</h3>
+                                <p class="text-gray-600">Document correction</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">28 Jan: Created WhatsApp Group for Cleanup</h3>
+                                <p class="text-gray-600">Additional communication channel</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="font-bold">17 Sep: Started planning for Cabin Cleanup</h3>
+                                <p class="text-gray-600">Preparing for year-end maintenance</p>
+                            </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-600 py-6">
+            <p>Quartermaster Annual Report • 2025</p>
+            <p class="mt-2 text-sm">Last updated: September 29, 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize feather icons
+        feather.replace();
+        
+        // Collapse/expand functionality
+        function toggleCollapse(id) {
+            const content = document.getElementById(id);
+            const chevron = document.getElementById(id + 'Chevron') || document.getElementById('stockChevron');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                chevron.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                chevron.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Initialize all collapsible sections as closed
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibles = document.querySelectorAll('.collapsible-content');
+            collapsibles.forEach(item => {
+                item.style.maxHeight = '0';
+            });
+        });
+    </script>
+</body>
+</html>
